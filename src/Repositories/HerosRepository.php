@@ -9,43 +9,56 @@ final class HerosRepository extends AbstractRepository
 
 
 
-    public function findHero(string $pseudo): ?Heros
+    public function find(int $id): ?Heros
     {
+        $sql = "SELECT * FROM heros WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $heroData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $stmt = $this->pdo->prepare("SELECT * FROM heros WHERE pseudo = :pseudo");
-        $stmt->bindParam(":pseudo", $pseudo, PDO::PARAM_STR);
-        $stmt->execute();
-
-
-        $data = $stmt->fetch();
-
-
-
-        if (!$data) {
+        if(!$heroData) {
             return null;
         }
 
-        return HerosMapper::mapToObject($data);
+        return HerosMapper::mapToObject($heroData);
     }
 
 
-    public function saveHeros(Heros $heros): Heros
+
+    public function findAll(): array
     {
+        $sql = "SELECT * FROM heros";
+        $stmt = $this->pdo->query($sql);
+        $heroDatas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmt = $this->pdo->prepare("INSERT INTO heros (pseudo,pv,attaque) VALUES (:pseudo, :pv, :attaque)");
+        $heroes = [];
+
+        foreach($heroDatas as $heroData){
+            $heroes[] = HerosMapper::mapToObject($heroData);
+        }
+
+        return $heroes;
+    }
 
 
+    public function create(Heros $hero): void
+    {
+        $sql = "INSERT INTO heros (pseudo, pv, attaque) VALUES (:pseudo, :pv, :attaque)";
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute(
-            [
-                ":pseudo" => $heros->getPseudo(),
-                ":pv" => $heros->getPv(),
-                ":attaque" => $heros->getAttaque(),
-            ]
+            HerosMapper::mapToArray($hero)
         );
+    }
 
-        $heros = $this->findHero($heros->getPseudo());
 
-        
-        return $heros;
+    public function update(Heros $hero): void
+    {
+        $sql = "UPDATE heros SET pv = :pv WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id' => $hero->getId(),
+            'pv' => $hero->getPv()
+        ]
+        );
     }
 }

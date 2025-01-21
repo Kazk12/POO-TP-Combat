@@ -72,7 +72,7 @@ class Heros{
         return $this;
     }
 
-    public function setHp(int $hp){
+    public function setPv(int $hp){
         $this->pv = $hp;
         return $this;
     }
@@ -81,4 +81,18 @@ class Heros{
     {
         return 'Le ' . $this->getPseudo() . ' attaque';
     }
+
+
+
+    public function hit(Monster $target)
+    {
+
+        if($target->getPv() - 15 <= 0){
+            $target->setPv(0);
+        } else {
+            $target->setPv($target->getPv() - $this->getAttaque());
+        }
+        
+    }
+
 }

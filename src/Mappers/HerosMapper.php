@@ -13,5 +13,15 @@ class HerosMapper {
         return new Heros($id, $pseudo, $pv, $attaque);
     }
 
+
+    public static function mapToArray(Heros $hero)
+    {
+        return [
+            'pseudo' => $hero->getPseudo(),
+            'pv' => $hero->getPv(),
+            'attaque' => $hero->getAttaque(),
+        ];
+    }
+
     
 }

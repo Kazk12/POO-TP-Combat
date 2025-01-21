@@ -18,8 +18,9 @@ let pvActuelHeros = herosPv;
 let pvDuMonstre = monstrePv;
 
 function faireApparaitreContinuer() {
-    console.log('Affichage du bouton Continuer');
     continuerForm.style.display = 'block';
+    continuerForm.innerHTML += '<input type="hidden" name="herosPv" value="' + pvActuelHeros + '">';
+
 }
 
 function herosAttaque() {
@@ -70,44 +71,4 @@ attackButton.addEventListener('click', () => {
 
 
 
-// let continuer = document.getElementById('continuer');
-
-// continuer.addEventListener('click', recupererHpHeros);
-
-// // Fonction pour récupérer les HP du héros
-// function recupererHpHeros() {
-//     console.log(hpHeros);
-//     fetch('./process/setHpHeros.php')
-//         .then(response => response.json())  // Convertir la réponse en JSON
-//         .then(data => {
-            
-//             let hpHeros = pvActuelHeros;
-          
-//             console.log('HP du héros :', hpHeros);
-//             pvActuelHeros = hpHeros; 
-
-
-
-//         })
-//         .catch(error => {
-//             console.error('Erreur lors de la récupération des HP du héros:', error);
-//         });
-//         return hpHeros;
-
-        
-
-//     }
-
-
-
     
-
-
-
-
-
-
-
-
-
-

@@ -1,38 +1,29 @@
 <?php 
 
-session_start();
+
 
 include_once '../../utils/autoload.php';
 
-$test = new HeroService();
-$pseudosecurise = $test -> checkPseudo($_POST['pseudo']);
+$securite = new HeroService();
+$pseudosecurise = $securite -> checkPseudo($_POST['pseudo']);
 
 
 
 
 $heroRepository = new HerosRepository;
 
-$heroExistant = $heroRepository -> findHero($pseudosecurise);
+
 
 $newHero = new Heros(0, $pseudosecurise);
 
       
-if($heroExistant){
-
-    $_SESSION['heros'] = $heroExistant;
-    header('location: ../choixHeros.php ');
-    exit;
-};
 
 
-$heroCreate =  $heroRepository -> saveHeros($newHero);
 
+$heroCreate =  $heroRepository -> create($newHero);
 
-if($heroCreate){
+  header('location: ../choixHeros.php ');
+  exit;
 
-    $_SESSION['heros'] = $heroCreate;
-    header('location: ../choixHeros.php ');
-    exit;
-};
 
 
