@@ -10,7 +10,7 @@ class Database {
         if (self::$instance === null) {
 
             $host = "localhost";
-            $dbname = "poo-combat";
+            $dbname = "tp-combat";
             $login = "root";
             $password = "";
 

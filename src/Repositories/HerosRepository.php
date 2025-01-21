@@ -43,7 +43,7 @@ final class HerosRepository extends AbstractRepository
 
     public function create(Heros $hero): void
     {
-        $sql = "INSERT INTO heros (pseudo, pv, attaque) VALUES (:pseudo, :pv, :attaque)";
+        $sql = "INSERT INTO heros (pseudo, level, pv, stat_For, stat_Agi, stat_Mag) VALUES (:pseudo, :level, :pv, stat_For, stat_Agi, stat_Mag)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(
             HerosMapper::mapToArray($hero)

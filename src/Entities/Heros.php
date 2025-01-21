@@ -1,18 +1,27 @@
 <?php
 
-class Heros{
+abstract class Heros{
     private int $id;
+    private int $id_classe;
     private string $pseudo;
+    private int $level;
     private int $pv;
-    private int $attaque;
+    private int $stat_For;
+    private int $stat_Agi;
+    private int $stat_Mag;
+    private Classe $classe;
 
 
-    public function __construct(int $id = 0, string $pseudo = "Test", int $pv = 45, int $attaque = 12 )
+    public function __construct(int $id = 0, int $id_classe = 0, string $pseudo = "Test", int $level = 1, int $pv = 45, int $stat_For = 12, int $stat_Agi = 12, int $stat_Mag = 12 )
     {
         $this->id = $id;
+        $this->id_classe = $id_classe;
         $this->pseudo = $pseudo;
+        $this->level = $level;
         $this->pv = $pv;
-        $this->attaque = $attaque;
+        $this->stat_For = $stat_For;
+        $this->stat_Agi = $stat_Agi;
+        $this->stat_Mag = $stat_Mag;
        
        
         
