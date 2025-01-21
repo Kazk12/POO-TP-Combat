@@ -5,8 +5,6 @@ session_start();
 
 
 
-
-
 $hero = $_SESSION['hero'];
 $monster = $_SESSION['monster'];
 
@@ -41,6 +39,7 @@ $monster = $_SESSION['monster'];
             <div id="hero" class="bg-gray-700 p-6 rounded-lg shadow-md">
                 <img src="./assets/images/images.jpg" alt="Image Du Heros" class="mx-auto w-36 h-36 object-cover">
                 <h2 class="text-xl font-semibold" id="hero-name"><?= $hero->getPseudo() ?></h2>
+                <p id="hero-level">Level : <?= $hero->getLevel() ?></p>
                 <p id="hero-pv">PV : <?= $hero->getPv() ?></p>
                 <p id="hero-attaque">Attaque : <?= $hero->getAttaque() ?></p>
             </div>
@@ -49,6 +48,7 @@ $monster = $_SESSION['monster'];
             <div id="monster" class="bg-gray-700 p-6 rounded-lg shadow-md">
                 <img src="<?= $monster->getImage() ?>" alt="Image Du Monstre" class="mx-auto w-36 h-36 object-cover">
                 <h2 class="text-xl font-semibold" id="monster-name"><?= $monster->getNom(); ?></h2>
+                <p id="monster-level">Level : <?= $monster->getLevel() ?></p>
                 <p id="monster-pv">PV : <?= $monster->getPv() ?></p>
                 <p id="monster-attaque">Attaque : <?= $monster->getAttaque() ?></p>
             </div>

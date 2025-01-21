@@ -9,7 +9,7 @@ class Orc extends Monster
     public function __construct(string $image = "assets/images/Orc.png")
     {
       $this->image = $image;
-        parent::__construct('Orc', 100, 20);
+        parent::__construct('Orc', 100, 20, 10);
     }
 
      /**

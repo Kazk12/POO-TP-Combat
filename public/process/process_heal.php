@@ -16,7 +16,7 @@ $soinHero = $hpHero + 30;
 
 $hero->setPv($soinHero);
 
-$heroRepository -> update($hero);
+$heroRepository -> updateHp($hero);
 
 
 

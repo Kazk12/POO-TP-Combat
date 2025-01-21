@@ -43,7 +43,7 @@ final class HerosRepository extends AbstractRepository
 
     public function create(Heros $hero): void
     {
-        $sql = "INSERT INTO heros (pseudo, pv, attaque) VALUES (:pseudo, :pv, :attaque)";
+        $sql = "INSERT INTO heros (pseudo, pv, attaque, level) VALUES (:pseudo, :pv, :attaque, :level)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(
             HerosMapper::mapToArray($hero)
@@ -51,13 +51,27 @@ final class HerosRepository extends AbstractRepository
     }
 
 
-    public function update(Heros $hero): void
+    public function updateHp(Heros $hero): void
     {
         $sql = "UPDATE heros SET pv = :pv WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             'id' => $hero->getId(),
             'pv' => $hero->getPv()
+        ]
+        );
+    }
+
+
+    public function updateLevel(Heros $hero): void
+    {
+        $sql = "UPDATE heros SET pv = :pv, attaque = :attaque, level = :level WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id' => $hero->getId(),
+            'pv' => $hero->getPv(),
+            'attaque' => $hero->getAttaque(),
+            'level' => $hero->getLevel(),
         ]
         );
     }

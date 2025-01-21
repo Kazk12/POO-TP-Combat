@@ -13,7 +13,6 @@ let statAttaqueMonstre = parseInt(document.getElementById('monster-attaque').tex
 
 
 
-
 let pvActuelHeros = herosPv;
 let pvDuMonstre = monstrePv;
 

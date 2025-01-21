@@ -8,6 +8,8 @@ session_start();
 
 $hero = $_SESSION['hero']; 
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +28,11 @@ $hero = $_SESSION['hero'];
         <!-- Partie gauche : bouton "Continuer les combats" -->
         <div class="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-xl w-64">
             <img src="./assets/images/Combat.jpg" alt="Continuer Combat" class="w-32 h-32 object-cover rounded-full mb-4"> 
-            <h2 class="text-xl font-semibold mb-2">Combattre</h2> 
-            <p class="text-gray-400 mb-4">Continuer le combat</p> 
-            <form action="./process/process_continuer.php" method="POST">
+            <h2 class="text-xl font-semibold mb-2">Retour</h2> 
+            <p class="text-gray-400 mb-4">Selectionner un héros</p> 
+            <form action="./choixHeros.php" method="POST">
                 <button type="submit" class="w-full py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg">
-                    Continuer
+                    Retour
                 </button> 
             </form>
         </div>
@@ -39,6 +41,8 @@ $hero = $_SESSION['hero'];
         <div class="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-xl w-64">
             <img src="./assets/images/images.jpg" alt="Image du Héros" class="w-32 h-32 object-cover rounded-full mb-4"> 
             <h2 class="text-xl font-semibold mb-2"><?= $hero->getPseudo() ?></h2> 
+            <p class="text-gray-400 mb-4">Level : <?= $hero->getLevel() ?></p> 
+            <p class="text-gray-400 mb-4">Attaque : <?= $hero->getAttaque() ?></p> 
             <p class="text-gray-400 mb-4">Pv : <?= $hero->getPv() ?></p> 
         </div>
 

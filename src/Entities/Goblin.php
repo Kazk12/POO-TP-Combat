@@ -8,7 +8,7 @@ class Goblin extends Monster
     {
         $this->image = $image;
         
-        parent::__construct('Goblin', 50, 10);
+        parent::__construct('Goblin', 50, 10, 1);
     }
 
     /**

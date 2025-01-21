@@ -8,9 +8,10 @@ class HerosMapper {
         $pseudo = $data["pseudo"];
         $pv = $data["pv"];
         $attaque = $data["attaque"];
+        $level = $data["level"];
 
       
-        return new Heros($id, $pseudo, $pv, $attaque);
+        return new Heros($id, $pseudo, $pv, $attaque, $level);
     }
 
 
@@ -20,6 +21,7 @@ class HerosMapper {
             'pseudo' => $hero->getPseudo(),
             'pv' => $hero->getPv(),
             'attaque' => $hero->getAttaque(),
+            'level' => $hero->getLevel(),
         ];
     }
 

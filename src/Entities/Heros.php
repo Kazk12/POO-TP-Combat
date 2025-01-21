@@ -5,14 +5,16 @@ class Heros{
     private string $pseudo;
     private int $pv;
     private int $attaque;
+    private int $level;
 
 
-    public function __construct(int $id = 0, string $pseudo = "Test", int $pv = 45, int $attaque = 12 )
+    public function __construct(int $id = 0, string $pseudo = "Test", int $pv = 45, int $attaque = 12, $level = 1 )
     {
         $this->id = $id;
         $this->pseudo = $pseudo;
         $this->pv = $pv;
         $this->attaque = $attaque;
+        $this->level = $level; 
        
        
         
@@ -77,11 +79,15 @@ class Heros{
         return $this;
     }
 
-    public function herosAttaque() : string
-    {
-        return 'Le ' . $this->getPseudo() . ' attaque';
+    public function setLevel(int $level){
+        $this->level = $level;
+        return $this;
     }
 
+    public function setAttaque(int $attaque){
+        $this->attaque = $attaque;
+        return $this;
+    }
 
 
     public function hit(Monster $target)
@@ -95,4 +101,12 @@ class Heros{
         
     }
 
+
+    /**
+     * Get the value of level
+     */ 
+    public function getLevel()
+    {
+        return $this->level;
+    }
 }

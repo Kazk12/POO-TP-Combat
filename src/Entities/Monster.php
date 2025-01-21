@@ -6,14 +6,16 @@ abstract  class  Monster
     protected string $nom;
     protected int $pv;
     protected int $attaque;
+    protected int $level;
     
 
 
-    public function __construct(string $nom, int $pv, int $attaque)
+    public function __construct(string $nom, int $pv, int $attaque, int $level)
     {
         $this->nom = $nom;
         $this->pv = $pv;
         $this->attaque = $attaque;
+        $this->level = $level;
        
     }
 
@@ -62,11 +64,13 @@ abstract  class  Monster
         
     }
 
+   
+
     /**
-     * Get the value of image
+     * Get the value of level
      */ 
-    public function getImage()
+    public function getLevel()
     {
-        return $this->image;
+        return $this->level;
     }
 }
