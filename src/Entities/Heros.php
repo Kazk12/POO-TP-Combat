@@ -72,6 +72,11 @@ class Heros{
         return $this;
     }
 
+    public function setHp(int $hp){
+        $this->pv = $hp;
+        return $this;
+    }
+
     public function herosAttaque() : string
     {
         return 'Le ' . $this->getPseudo() . ' attaque';
