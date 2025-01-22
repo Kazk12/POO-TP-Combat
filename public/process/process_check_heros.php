@@ -69,6 +69,42 @@ if($hero->getPv() > 0) {
         
     };
 
+    if($_SESSION['monster'] ->getNom() == 'Slime') {
+        $heroLevel += 1;
+        $hero->setLevel($heroLevel);
+        $heroAttaque += 2;
+        $hero->setAttaque($heroAttaque);
+        $heroPv += 10;
+        $hero->setPv($heroPv);
+        $heroRepository -> updateLevel($hero);
+
+        
+    };
+
+    if($_SESSION['monster'] ->getNom() == 'Loup') {
+        $heroLevel += 3;
+        $hero->setLevel($heroLevel);
+        $heroAttaque += 6;
+        $hero->setAttaque($heroAttaque);
+        $heroPv += 30;
+        $hero->setPv($heroPv);
+        $heroRepository -> updateLevel($hero);
+
+        
+    };
+
+    if($_SESSION['monster'] ->getNom() == 'Dragon') {
+        $heroLevel += 150;
+        $hero->setLevel($heroLevel);
+        $heroAttaque += 300;
+        $hero->setAttaque($heroAttaque);
+        $heroPv += 1500;
+        $hero->setPv($heroPv);
+        $heroRepository -> updateLevel($hero);
+
+        
+    };
+
 
 
     header('Location: ../suite.php');

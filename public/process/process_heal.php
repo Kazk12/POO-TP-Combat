@@ -23,14 +23,22 @@ $heroRepository -> updateHp($hero);
 
 function generateRandomMonster()
 {
-    $monsters = ['Goblin', 'Orc'];
+    $monsters = ['Goblin', 'Orc', 'Loup', 'Dragon', 'Slime'];
     $randomMonster = $monsters[array_rand($monsters)];
+
+
 
     switch ($randomMonster) {
         case 'Goblin':
             return new Goblin();
         case 'Orc':
             return new Orc();
+        case 'Loup':
+            return new Loup();
+        case 'Dragon':
+            return new Dragon();
+        case 'Slime':
+            return new Slime();
         default:
             throw new Exception("Unknown monster type");
     }

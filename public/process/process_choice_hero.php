@@ -27,7 +27,7 @@ if (!$hero) {
 
 function generateRandomMonster()
 {
-    $monsters = ['Goblin', 'Orc'];
+    $monsters = ['Goblin', 'Orc', 'Loup', 'Dragon', 'Slime'];
     $randomMonster = $monsters[array_rand($monsters)];
 
 
@@ -37,6 +37,12 @@ function generateRandomMonster()
             return new Goblin();
         case 'Orc':
             return new Orc();
+        case 'Loup':
+            return new Loup();
+        case 'Dragon':
+            return new Dragon();
+        case 'Slime':
+            return new Slime();
         default:
             throw new Exception("Unknown monster type");
     }
@@ -51,7 +57,3 @@ $_SESSION['monster'] = $monster;
 
 header('Location: ../fight.php');
 exit;
-
-
-
-

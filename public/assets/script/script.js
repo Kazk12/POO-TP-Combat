@@ -11,8 +11,6 @@ let statAttaqueHeros = parseInt(document.getElementById('hero-attaque').textCont
 let statAttaqueMonstre = parseInt(document.getElementById('monster-attaque').textContent.split(' : ')[1]);
 
 
-
-
 let pvActuelHeros = herosPv;
 let pvDuMonstre = monstrePv;
 

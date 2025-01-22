@@ -8,6 +8,8 @@ session_start();
 $hero = $_SESSION['hero'];
 $monster = $_SESSION['monster'];
 
+
+
 $fightManager = new FightsManager($hero, $monster);
 
 
