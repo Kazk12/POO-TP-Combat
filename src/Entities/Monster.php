@@ -7,6 +7,7 @@ abstract  class  Monster
     protected int $pv;
     protected int $attaque;
     protected int $level;
+    protected string $image;
     
 
 
@@ -72,5 +73,13 @@ abstract  class  Monster
     public function getLevel()
     {
         return $this->level;
+    }
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImage()
+    {
+        return $this->image;
     }
 }

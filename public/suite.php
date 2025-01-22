@@ -50,7 +50,7 @@ $hero = $_SESSION['hero'];
         <div class="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-xl w-64">
             <img src="./assets/images/Feu_De_Camp.jpg" alt="Soins" class="w-32 h-32 object-cover rounded-full mb-4"> 
             <h2 class="text-xl font-semibold mb-2">Soins</h2> 
-            <p class="text-gray-400 mb-4 text-center">Soignez votre héros ici <br> (HP + 30)</p> 
+            <p class="text-gray-400 mb-4 text-center">Soignez votre héros ici <br> (HP + 70)</p> 
             <form action="./process/process_heal.php" method="POST">
                 <button type="submit" class="w-full py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg">Se soigner</button> 
             </form>

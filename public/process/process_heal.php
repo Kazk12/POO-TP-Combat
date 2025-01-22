@@ -12,7 +12,7 @@ $hero = $_SESSION['hero'];
 $hpHero = $hero->getPv();
 
 
-$soinHero = $hpHero + 30;
+$soinHero = $hpHero + 70;
 
 $hero->setPv($soinHero);
 

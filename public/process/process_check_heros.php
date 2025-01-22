@@ -5,6 +5,24 @@ include_once '../../utils/autoload.php';
 
 session_start();
 
+$validator = new ValidatorService();
+
+$validator->checkMethods('POST');
+
+
+
+
+$validator->addStrategy('herosPv', new RequiredValidator());
+$validator->addStrategy('herosPv', new IntegerValidator());
+
+if (!$validator->validate($_POST)) {
+    header('location: ../choixHeros.php');
+    return;
+}
+
+$sanitizedData = $validator->sanitize($_POST);
+
+
 
 $heroRepository = new HerosRepository();
 
@@ -12,7 +30,7 @@ $heroRepository = new HerosRepository();
 $hero = $_SESSION['hero'];
 
 
-$hero->setPv($_POST['herosPv']);
+$hero->setPv($sanitizedData['herosPv']);
 
 
 $heroRepository -> updateHp($hero);

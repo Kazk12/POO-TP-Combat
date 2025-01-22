@@ -2,7 +2,7 @@
 
 class Goblin extends Monster
 {
-    private string $image;
+    
 
     public function __construct(string $image = "assets/images/Goblin.avif")
     {
@@ -11,13 +11,7 @@ class Goblin extends Monster
         parent::__construct('Goblin', 50, 10, 1);
     }
 
-    /**
-     * Get the value of image
-     */ 
-    public function getImage()
-    {
-        return $this->image;
-    }
+  
 
 
 
