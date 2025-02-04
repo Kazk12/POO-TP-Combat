@@ -5,35 +5,39 @@ include_once '../../utils/autoload.php';
 
 session_start();
 
-$validator = new ValidatorService();
 
-$validator->checkMethods('POST');
+if(!isset($_POST['herosPv'])) {
+    header('Location: ../choixHeros.php?error=1');
+    exit;
+};
 
+if(!empty($_POST['herosPv'])) {
+    if(!is_numeric($_POST['herosPv'])) {
+        header('Location: ../choixHeros.php?error=3');
+        exit;
+    };
+};
 
+if(!isset($_SESSION['hero'])) {
+    header('Location: ../choixHeros.php?error=2');
+    exit;
+};
 
-
-$validator->addStrategy('herosPv', new RequiredValidator());
-$validator->addStrategy('herosPv', new IntegerValidator());
-
-if (!$validator->validate($_POST)) {
-    header('location: ../choixHeros.php');
-    return;
-}
-
-$sanitizedData = $validator->sanitize($_POST);
 
 
 
 $heroRepository = new HerosRepository();
 
 
+
 $hero = $_SESSION['hero'];
 
 
-$hero->setPv($sanitizedData['herosPv']);
+$hero->setPv($_POST['herosPv']);
 
 
 $heroRepository -> updateHp($hero);
+
 
 if($hero->getPv() <= 0) {
     header('Location: ../choixHeros.php?mort=1');
